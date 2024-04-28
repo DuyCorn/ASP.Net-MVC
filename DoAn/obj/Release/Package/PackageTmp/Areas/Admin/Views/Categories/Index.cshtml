@@ -1,0 +1,46 @@
+﻿@model List<DoAn.Models.Category>
+
+@{
+    ViewBag.Title = "Categories";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>Categories</h2>
+
+<table class="table table-bordered cateTable">
+    <thead>
+        <tr>
+            <th>Category ID</th>
+            <th>Category Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Nội dung -->
+    </tbody>
+</table>
+
+<script>
+    $(document).ready(() => {
+        loadBrands();
+    });
+
+    function loadBrands() {
+        $('.cateTable tbody').empty();
+        $.ajax({
+            type: 'GET',
+            url: '/api/categories',
+            success: (responses) => {
+                for (var i = 0; i < responses.length; i++) {
+                    const brandRow = responses[i];
+                    const strHTML = '<tr><td>'
+                        + brandRow.CategoryID
+                        + '</td><td>'
+                        + brandRow.CategoryName
+                        + '</td></tr>';
+                    $(strHTML).hide().appendTo('.cateTable tbody').slideDown(500);
+                }
+            },
+            error: (err) => { console.log(err); }
+        });
+    }
+</script>

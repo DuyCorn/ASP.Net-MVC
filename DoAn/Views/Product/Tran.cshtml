@@ -1,0 +1,89 @@
+﻿@model List<DoAn.Models.Product>
+
+@{
+    ViewBag.Title = "Quạt Trần";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Quạt Trần</h2>
+
+<div class="row">
+    <br />
+    <div id="products" class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-2 col-sm-4 col-xs-6">
+                <a href="/product/detail/@item.ProductID" style="text-decoration: none; color: inherit;">
+                    <div class="card" style="transition: box-shadow .3s;">
+                        @if (!string.IsNullOrEmpty(item.Image))
+                        {
+                            <img src="~/Images/@item.Image" class="card-img-top" alt="@item.ProductName" />
+                        }
+                        else
+                        {
+                            <img src="~/Images/noImage.jpg" class="card-img-top" alt="@item.ProductName" />
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title">@item.ProductName</h5>
+                            <p class="card-text">@item.Price.ToString("N0") VNĐ</p>
+                            <p class="card-text">
+                                <small class="text-muted">
+                                    Loại quạt: @item.Category.CategoryName
+                                </small>
+                            </p>
+                            <p class="card-text">
+                                <small class="text-muted">
+                                    Nhãn hiệu: @item.Brand.BrandName
+                                </small>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <br />
+            </div>
+        }
+        @{
+            int? PrevPage = ViewBag.Page - 1;
+            if (PrevPage <= 0)
+            {
+                PrevPage = 1;
+            }
+            int? NextPage = ViewBag.Page + 1;
+            if (NextPage > ViewBag.NoOfPages)
+            {
+                NextPage = ViewBag.NoOfPages;
+            }
+        }
+        <ul class="pagination justify-content-center">
+            <li class="page-item">
+                <a class="page-link" href="/product/tran?page=@PrevPage">
+                    Prev
+                </a>
+            </li>
+            @for (int i = 0; i < ViewBag.NoOfPages; i++)
+            {
+                if (i + 1 == ViewBag.Page)
+                {
+                    <li class="page-item active">
+                        <a class="page-link" href="/product/tran?page=@(i+1)">
+                            @(i+1)
+                        </a>
+                    </li>
+                }
+                else
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="/product/tran?page=@(i+1)">
+                            @(i+1)
+                        </a>
+                    </li>
+                }
+            }
+            <li class="page-item">
+                <a class="page-link" href="/product/tran?page=@NextPage">
+                    Next
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

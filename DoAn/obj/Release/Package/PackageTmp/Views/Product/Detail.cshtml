@@ -1,0 +1,60 @@
+﻿@model DoAn.Models.Product
+
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Chi tiết sản phẩm</h2>
+
+<div class="container row">
+    <div class="col-md-4">
+        @if (!string.IsNullOrEmpty(Model.Image))
+        {
+            <img src="~/Images/@Model.Image" width="420" height="420" />
+        }
+        else
+        {
+            <img src="~/Images/noImage.jpg" width="420" height="420" />
+        }
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-6">
+        <form>
+            <input type="hidden" name="ProductID" value="@Model.ProductID" />
+
+            <div class="form-group">
+                <label for="ProductName" style="font-weight:bold; font-size:20px;">Product Name</label>
+                <input type="text" class="form-control" id="ProductName" name="ProductName" value="@Model.ProductName" readonly />
+            </div>
+
+            <div class="form-group">
+                <label for="Price" style="font-weight:bold; font-size:20px;">Price</label>
+                <input type="number" class="form-control" id="Price" name="Price" value="@Model.Price" readonly />
+            </div>
+
+            <div class="form-group">
+                <label for="Description" style="font-weight:bold; font-size:20px;">Description</label>
+                <input type="text" class="form-control" id="Description" name="Description" value="@Model.Description" readonly />
+            </div>
+
+            <div class="form-group">
+                <label for="Description" style="font-weight:bold; font-size:20px;">Status</label>
+                <input type="text" class="form-control" id="Description" name="Description" value="@Model.Status" readonly />
+            </div>
+
+            <div class="form-group">
+                <label for="Description" style="font-weight:bold; font-size:20px;">Brand</label>
+                <input type="text" class="form-control" id="Description" name="Description" value="@Model.Brand.BrandName" readonly />
+            </div>
+
+            <div class="form-group">
+                <label for="Description" style="font-weight:bold; font-size:20px;">Category</label>
+                <input type="text" class="form-control" id="Description" name="Description" value="@Model.Category.CategoryName" readonly />
+            </div>
+
+            <a href="/Cart/Add/@Model.ProductID" class="btn btn-primary">Thêm giỏ hàng</a>
+            <a href="/product" class="btn btn-secondary">Back</a>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAZRwAru2anEmL0lL5pwXIjQAAAAACAAAAAAAQZgAAAAEAACAAAADkpBYrnhthgQv/toy7SpMYVCp3lGlM8H78GJQlSqe6PgAAAAAOgAAAAAIAACAAAAD8EUluXG1Elf7mziWdHsgNw5/LxE/Xqx/C8ltvCorzpCAAAADYMi5g//CrLVV3/9fxhie5j4Sqj5U5kqWvCMromjw060AAAACB2bzinwoQgPeiZunRLKHuyoy5T/Qkaj9TEC6Pe7lm399q1qLQqXORloAhLjew3lKcW1YHwcskJ6hZUDQYmmUN</EncryptedPassword>
+    <_PublishTargetUrl>ftp://win8025.site4now.net:21/ngoh</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="App_Data/WebDB.mdf">
+      <publishTime>12/06/2023 20:04:29</publishTime>
+    </File>
+    <File Include="App_Data/WebDB_log.ldf">
+      <publishTime>12/06/2023 20:04:29</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Brands/Index.cshtml">
+      <publishTime>12/05/2023 02:29:32</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Categories/Index.cshtml">
+      <publishTime>12/04/2023 16:08:19</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Home/Index.cshtml">
+      <publishTime>12/03/2023 22:37:11</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Products/Create.cshtml">
+      <publishTime>12/05/2023 01:41:25</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Products/Delete.cshtml">
+      <publishTime>12/05/2023 03:11:40</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Products/Detail.cshtml">
+      <publishTime>12/06/2023 03:09:18</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Products/Edit.cshtml">
+      <publishTime>12/06/2023 19:17:16</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Products/Index.cshtml">
+      <publishTime>12/06/2023 03:03:14</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml">
+      <publishTime>12/06/2023 17:23:31</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/Users/Index.cshtml">
+      <publishTime>12/04/2023 09:45:09</publishTime>
+    </File>
+    <File Include="Areas/Admin/Views/web.config">
+      <publishTime>12/03/2023 05:33:59</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>12/06/2023 21:49:02</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>12/06/2023 21:48:55</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>12/06/2023 21:48:53</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

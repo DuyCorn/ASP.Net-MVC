@@ -1,0 +1,60 @@
+﻿@model List<DoAn.Models.Cart>
+
+@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Giỏ hàng</h2>
+
+<table class="cart-table table-bordered">
+    <thead>
+        <tr>
+            <th>Tên sản phẩm</th>
+            <th>Hình ảnh</th>
+            <th>Số lượng</th>
+            <th>Giá tiền</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 1;
+            decimal totPrice = 0;
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td style="border-bottom: 1px solid black">@item.Product.ProductName</td>
+                <td style="border-bottom: 1px solid black"><img src="~/Images/@item.Product.Image" alt="@item.Product.ProductName" width="100" height="100"></td>
+                <td style="border-bottom: 1px solid black">
+                    @using (Html.BeginForm("UpdateQuantity", "Cart", FormMethod.Get))
+                    {
+                        <input type="number" name="quan" value="@item.Quantity" min="1" style="width: 60px;" />
+                        <input type="hidden" name="proid" value="@item.ProductID" />
+                        <input type="submit" value="Cập nhật" class="btn btn-warning" />
+                    }
+                </td>
+                <td style="border-bottom: 1px solid black">
+                    @{
+                        decimal Price = item.Quantity * item.Product.Price;
+                        totPrice += Price;
+                        i++;
+                    }
+                    @Price.ToString("N0") VNĐ
+                </td>
+                <td style="border-bottom: 1px solid black">
+                    <a href="/Cart/Remove/@item.ProductID" class="btn btn-danger">Xóa khỏi giỏ hàng</a>
+                </td>
+            </tr>
+        }
+        <tr>
+            <td colspan="3" class="text-center fw-bold">Tổng tiền</td>
+            <td>@totPrice.ToString("N0") VNĐ</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>
+    <a href="/Product" class="btn btn-warning">Tiếp tục mua hàng</a>
+</p>
